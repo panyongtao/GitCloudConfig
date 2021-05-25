@@ -1,0 +1,25 @@
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %clr(%5p) %clr(-){faint} %clr(%-80.80logger{79}){cyan} %clr(:) %m%n"
+
+spring:
+  application:
+    name: eurekaServer
+
+server:
+  port: 3000
+
+eureka:
+  server:
+    enable-self-preservation: false  #false关闭自我保护机制,避免因网络故障（15分钟内80%主机无响应）而清理主机
+    #保护机制被触发时就不会进行同步
+    eviction-interval-timer-in-ms: 4000 #设置清理间隔（单位：毫秒 默认是60*1000）
+  instance:
+    hostname: eureka
+
+  client:
+    registerWithEureka: true #为false时不把自己作为一个客户端注册到自己身上,默认是true
+    fetchRegistry: true  #为false时不需要从服务端获取注册信息（因为在这里自己就是服务端，而且已经禁用自己注册了）
+    serviceUrl: #微服务要注册到的地址.
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+      defaultZone: http://eureka1:3001/eureka,http://eureka2:3002/eureka
