@@ -1,8 +1,4 @@
 #告诉配置中心github地址
-logging:
-  pattern:
-    console: "%d{HH:mm:ss.SSS} %clr(%5p) %clr(-){faint} %clr(%-80.80logger{79}){cyan} %clr(:) %m%n"
-
 server:
   port: 8081
 
