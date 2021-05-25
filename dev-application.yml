@@ -1,14 +1,1 @@
-#告诉配置中心github地址
-server:
-  port: 8081
-
-spring:
-  application:
-    name: testConfigServer
-
-  cloud:
-    config:
-      server:
-        git: #仓库地址
-          uri: https://github.com/panyongtao/GitCloudConfig.git
-
+pro: dev
